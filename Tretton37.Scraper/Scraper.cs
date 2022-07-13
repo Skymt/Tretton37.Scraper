@@ -88,7 +88,7 @@ namespace Tretton37
 
             return localPath;
         }
-        IEnumerable<string> SearchForLinks(string text)
+        static IEnumerable<string> SearchForLinks(string text)
         {
             foreach(var potentialLink in SearchForEnclosedStrings(text))
             {
@@ -101,6 +101,8 @@ namespace Tretton37
 
                 if(link[0] != '/' && !link.Contains('.')) continue;
                 if (link.Contains('<')) continue;
+
+                link = link.Split('#')[0];
 
                 if (link[0] == '/' && !link.Split('/').Last().Contains('.'))
                     link += "/index.html";

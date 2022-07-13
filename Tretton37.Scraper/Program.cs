@@ -2,7 +2,7 @@
 
 if(string.IsNullOrEmpty(destination))
 {
-    destination = Path.GetTempPath();
+    destination = @"C:\temp";
     Console.WriteLine($"Save files to {destination}? (Y/N)");
     if (Console.ReadKey(true).Key != ConsoleKey.Y) return;
 }
